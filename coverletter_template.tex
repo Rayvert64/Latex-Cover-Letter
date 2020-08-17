@@ -1,0 +1,85 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Cover Letter Template %
+% By: Jolon Behrent     %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[T1]{fontenc}
+
+\usepackage{fontspec}
+
+\usepackage[margin=1.0in]{geometry}
+
+% Set document font to Calibri
+\setmainfont{Calibri}
+
+% Remove starting indent of paragraphs
+\setlength\parindent{0pt}
+
+% Remove page numbers
+\pagestyle{empty}
+
+
+%% Set author's name (required)
+\newcommand{\setname}[1]{
+    \newcommand \name {#1}}
+%% Set personal information (email, phone, profile link)
+\newcommand{\settopmatter}[1]{
+    \newcommand \topmatter {#1}}
+%% Set greeting (defaults to "Dear Hiring Manager,")
+\newcommand{\setgreeting}[1]{
+    \newcommand \greeting {#1}}
+%% Set topic of letter
+\newcommand{\setregarding}[1]{
+    \newcommand \regarding {#1}}
+%% Set sign off message (defaults to "Yours faithfully,")
+\newcommand{\setfarewell}[1]{
+    \newcommand \farewell {#1}}
+
+%% Displays name, top matter, data, greeting, and regarding
+\newcommand{\addtitle}{
+% Print title and (optional) top matter
+\begin{center}
+    {\huge \name}
+
+    \hrulefill
+
+    \ifdefined\topmatter
+    \topmatter
+    \fi
+\end{center}
+
+% Print date document was compiled
+\today \\
+
+% Print greeting
+\ifdefined\greeting
+\greeting
+\else
+Dear Hiring Manager,
+\fi \\
+
+% Print regarding information
+\ifdefined\regarding
+\textbf{Re: \regarding} \\
+\fi
+
+}
+
+%% Displays farewell and name
+\newcommand{\addclosing}{
+    \\~\\
+    \ifdefined\farewell
+    \farewell
+    \else
+    Yours faithfully,
+    \fi \\~\\
+
+    \name
+}
+
+%% Defines begin and end tags for document
+\newenvironment{coverletter}{\addtitle}{\addclosing}
+
+%%%%%%%%%%
+% Sample %
+%%%%%%%%%%
