@@ -4,6 +4,23 @@ A template for a cover letter (or similar) in LaTeX.
 
 This template will not work with pdflatex due to the `\setmainfont` command. This can be removed for full compatibility. Otherwise, it is suggested that you use LuaLaTeX or XeLaTeX.
 
+You can install these with:
+
+```shell
+sudo apt install texlive-latex-extra
+sudo apt install texlive-luatex
+luaotfload-tool --update
+```
+
+Try building the sample file with:
+
+```shell
+lualatex sample.tex
+```
+
+This will require having the Calibri font install on your machine.
+If you don't want to use that font, you can change the font by editing the template file.
+
 ## Commands
 
 | Command | Function | Required |
