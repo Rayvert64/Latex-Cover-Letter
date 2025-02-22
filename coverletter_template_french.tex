@@ -1,0 +1,94 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Cover Letter Template %
+% By: Jolon Behrent     %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{fontspec}
+
+\usepackage[margin=1.0in]{geometry}
+
+\usepackage{graphicx}
+
+\usepackage{parskip}
+\setlength\parskip{1em plus 0.1em minus 0.2em}
+\setlength\parindent{0pt}
+
+\usepackage[french]{babel}
+
+% Set document font to Calibri
+\setmainfont{Lato}
+%\fontfamily{phv}\selectfont
+
+% Remove starting indent of paragraphs
+\setlength\parindent{0pt}
+
+% Remove page numbers
+\pagestyle{empty}
+
+\sloppy
+
+%% Set author's name (required)
+\newcommand{\setname}[1]{
+    \newcommand \name {#1}}
+%% City of Origin
+\newcommand{\setcityoforigin}[1]{
+    \newcommand \cityoforigin {#1}}
+%% Set personal information (email, phone, profile link)
+\newcommand{\settopmatter}[1]{
+    \newcommand \topmatter {#1}}
+%% Set greeting (defaults to "Dear Hiring Manager,")
+\newcommand{\setgreeting}[1]{
+    \newcommand \greeting {#1}}
+%% Set topic of letter
+\newcommand{\setregarding}[1]{
+    \newcommand \regarding {#1}}
+%% Set sign off message (defaults to "Yours faithfully,")
+\newcommand{\setfarewell}[1]{
+    \newcommand \farewell {#1}}
+
+%% Displays name, top matter, data, greeting, and regarding
+\newcommand{\addtitle}{
+% Print title and (optional) top matter
+
+% Print date document was compiled
+\cityoforigin, \today \\
+
+\ifdefined\topmatter
+\topmatter
+\fi
+
+% Print regarding information
+\ifdefined\regarding
+\textbf{Objet: \regarding} \\
+\fi
+
+% Print greeting
+\ifdefined\greeting
+\greeting
+\else
+Dear Hiring Manager,
+\fi \\
+
+}
+
+%% Displays farewell and name
+\newcommand{\addclosing}{
+    \\~\\
+    \ifdefined\farewell
+    \farewell
+    \else
+    Yours faithfully,
+    \fi \\~\\ 
+    \includegraphics[height=1.5cm]{signature_v2.png}
+    \\\name
+}
+
+%% Defines begin and end tags for document
+\newenvironment{coverletter}{\addtitle}{\addclosing}
+
+%%%%%%%%%%
+% Sample %
+%%%%%%%%%%
